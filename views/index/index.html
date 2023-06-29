@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BEMBOS</title>
+    <link rel="stylesheet" type="text/css" href="../styles/styles.css"> 
+    <!--<script src="productos.js" type="module"></script>          TRAER VARIABLES DE JS-->
+    <script src="eventos.js" type="module"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@100;700&family=Roboto+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="p-3 mb-2 bg-dark text-white">
+        <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ  (ESTA SEPARA LAS SECCIONES DE LA INTERFAZ COMO: PRINCIPAL - MOSTRAR OPCIONES - DOWN LEFT RIGHT)-->
+
+            <div class="right"><!--SECCION IZQUIERDA DE LA INTERFAZ-->
+                
+                <textarea name="description1" class="form-control" id="exampleFormControlTextarea1" rows="13" placeholder="task description"></textarea>
+                <br>
+                <button id="Anular-Producto" class="btn btn-danger">Anular producto</button>
+                <br><br>
+                <textarea name="description2" class="form-control"  id="exampleFormControlTextarea1" rows="5" placeholder="task description"></textarea>
+                <br>
+                <button class="btn btn-success" id = "Realizar-pago">Realizar Pago</button>
+
+            </div>
+            
+        <!--division general -> SECCION CENTRAL UBICANDO : OPCIONES Y MOSTRAR OPCIONES (ENTENDER COMO CUADRICULAS)-->
+            <div class="general">
+                <div class="opciones">
+                    <button id = "Clasica" class="boton-clasica hidden">Clasica</button>
+                    <button id = "Cheese" class="boton-cheese hidden">Cheese</button>
+                    <button id = "Royal" class="boton-royal hidden">Royal</button>
+                    <button id = "Pechugon" class=" boton-pechugon hidden">Pechugon</button>
+                    <button id = "Broaster" class="boton-broaster hidden">Broaster</button>
+                    <button id = "Burger" class="boton-burger hidden">Burger</button>
+                    <button id = "Nuggets" class="boton-nuggets hidden">Nuggets</button>
+                    <button id = "Salchipapa" class="boton-salchipapa hidden">Salchipapa</button>
+                    <button id = "Cheese-fingers" class="boton-cheese-fingers hidden">Cheese fingers</button>
+                    <button id = "Inca-kola" class="boton-inka-kola hidden">Inca Kola</button>
+                    <button id = "Coca-cola" class="boton-coca-cola hidden">Coca Cola</button>
+                    <button id = "Sprite" class="boton-sprite hidden">Sprite</button> 
+
+                    <input id="RUCtxt" class="txt-RUC hidden" type="text" placeholder="RUC" value="">
+                    <button id ="anadir-ruc" class="boton-anadir-RUC hidden">Añadir RUC</button>
+
+                    <input id="DNItxt" class="txt-DNI hidden" type="text" placeholder="DNI" value="">
+                    <button id ="anadir-dni" class="boton-anadir-DNI hidden">Añadir DNI</button>
+
+                    <input id="NULLtxt" class="txt-NULL hidden" type="text" placeholder="NO HAY PEDIDO" value=""> 
+                </div>
+                <div class="mostraropciones">
+                    <img src="../resources/descarga.png" alt="Logo de la tienda" class="logo">
+                    <button id="Hamburguesas">Hamburguesas</button>
+                    <button id="Menus">Menus</button>
+                    <button id="Complementos">Complementos</button>
+                    <button id="Bebidas">Bebidas</button>
+                </div>              
+            </div>
+            <!--division general-->
+
+            <div class="left"><!--SECCION DERECHA DE LA INTERFAZ-->
+                <br><button class="btn btn-danger" id="Cancelar-Pedido">cancelar pedido</button><br>
+                <br><button class="btn btn-light" id="RUC">RUC</button><br>
+                <br><button class="btn btn-light" id="DNI">DNI</button><br>
+            </div>
+
+
+            <div class="down"><!--ABAJO-->
+                <br>
+                <button class="btn btn-secondary" id="comer">Comer Aca</button>
+                <button class="btn btn-secondary" >Para Llevar</button>
+                <button class="btn btn-secondary" >Generar Pedido</button>
+                <input type="text" placeholder="Nombre del Cliente">
+                <input type="text" placeholder="Pedido Adicional">
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
