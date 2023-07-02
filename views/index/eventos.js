@@ -1,5 +1,4 @@
 
-
 var btnHamburguesas = document.getElementById("Hamburguesas");
 var btnMenus = document.getElementById("Menus");
 var btnComplementos = document.getElementById("Complementos");
@@ -134,13 +133,14 @@ function mostrarOpciones(opciones) {
     }
 }
 
+let id ;
 // Función para agregar evento de selección a un botón
-function agregarEventoSeleccion(btn, id) {
+function agregarEventoSeleccion(btn, idfunction) {
     if (btn) {
         btn.addEventListener("click", () => {
-            console.log(`Producto ${id} seleccionado`);
-            arregloDeProductosSeleccionadosId.push(id);
-            console.log(arregloDeProductosSeleccionadosId);
+            console.log(`Producto ${idfunction} seleccionado`);
+            id = idfunction;
+            console.log("SE ENVIO : " + id);
         });
     }
 }
@@ -197,33 +197,10 @@ if (btnSprite) {
     agregarEventoSeleccion(btnSprite, 12);  
 }
 
-let arregloproductos = [];
+import { arregloproductos } from "../../controllers/detalle_venta.js";
 
-let id = 7;
 
-console.log("holaaaa")
-$('#boton1').click(function() {
-    console.log("funciona el boton ajax");
-    $.ajax({
-        type: "GET",
-        url: '../../controllers/detalle_venta.php',
-        data: {'valor': id},
-        
-        success: function(response)
-        {
-            console.log(response);
-            arregloproductos.push(response);
-            console.log(arregloproductos)
-            var jsonData = JSON.parse(response);
-            
-            if (jsonData.valor == id)
-            {
-                console.log('todo bien');
-                setTimeout(function () {
-                    window.location = '../../controllers/detalle_venta.php?valor=' + id;
-                    }, 3000);//esto redirigirá al mismo archivo.php después de 3 segundos
-                
-            }
-       }
-   });
-});
+export {id};
+
+console.log(arregloproductos);
+
