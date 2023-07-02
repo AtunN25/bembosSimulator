@@ -344,3 +344,4 @@ if(aparecer == 1){
   btnanadirDNI.classList.toggle("hidden");
 }
 }
+
