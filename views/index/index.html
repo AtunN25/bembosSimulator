@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"> 
     <!--<script src="productos.js" type="module"></script>          TRAER VARIABLES DE JS-->
     <script src="eventos.js" type="module"></script>
+    <script src="../../controllers/cliente.js" type="module"></script>
 
     <!--<script src="../../controllers/detalle_venta.js" type="module"></script>-->
 
@@ -21,8 +22,7 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
-    
-    <button type="button" id="boton1">Click Aqui</button>
+    <h3>Cliente actual: <span id="nombreClienteActual"></span></h3>
     <div class="p-3 mb-2 bg-dark text-white">
         <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ  (ESTA SEPARA LAS SECCIONES DE LA INTERFAZ COMO: PRINCIPAL - MOSTRAR OPCIONES - DOWN LEFT RIGHT)-->
 
@@ -76,14 +76,12 @@
                 <br><button class="btn btn-danger" id="Cancelar-Pedido">cancelar pedido</button><br>
                 <br><button class="btn btn-light" id="RUC">RUC</button><br>
                 <br><button class="btn btn-light" id="DNI">DNI</button><br>
-                <form action="../../models/cliente.php" method="post">
-                    <br>
-                    <input type="text" name="nombreCliente" placeholder="Nombre del Cliente"><br>
-                    <br>
-                    <input type="text" name="documento" placeholder="Documento"><br>
-                    <br>
-                    <button type="submit">Enviar</button>
-                </form>
+                <br>
+                <input type="text" name="nombreCliente" placeholder="Nombre del Cliente"><br>
+                <br>
+                <input type="text" name="documento" placeholder="Documento"><br>
+                <br>
+                <button type="button" id="boton1">enviar cliente</button>
 
             </div>
 

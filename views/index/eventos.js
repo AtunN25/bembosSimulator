@@ -133,14 +133,15 @@ function mostrarOpciones(opciones) {
     }
 }
 
-let id ;
+import { agregarEventoAjax } from "../../controllers/detalle_venta.js";
+
 // Función para agregar evento de selección a un botón
 function agregarEventoSeleccion(btn, idfunction) {
     if (btn) {
         btn.addEventListener("click", () => {
             console.log(`Producto ${idfunction} seleccionado`);
-            id = idfunction;
-            console.log("SE ENVIO : " + id);
+            //FUNCION AJAX  
+            agregarEventoAjax(idfunction);
         });
     }
 }
@@ -199,8 +200,6 @@ if (btnSprite) {
 
 import { arregloproductos } from "../../controllers/detalle_venta.js";
 
-
-export {id};
 
 console.log(arregloproductos);
 
