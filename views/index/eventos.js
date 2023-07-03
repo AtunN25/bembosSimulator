@@ -40,7 +40,7 @@ var bebidasOptions = [btnIncaKola, btnCocaCola, btnSprite];
 var ultimaCategoriaSeleccionada = null;
 
 btnHamburguesas.addEventListener("click", () => {
-    console.log("Botón de hamburguesas presionado");
+    //console.log("Botón de hamburguesas presionado");
     if (ultimaCategoriaSeleccionada === hamburguesaOptions) {
         ocultarOpciones();
         ultimaCategoriaSeleccionada = null;
@@ -52,7 +52,7 @@ btnHamburguesas.addEventListener("click", () => {
 });
 
 btnMenus.addEventListener("click", () => {
-    console.log("Botón Menus presionado");
+    //console.log("Botón Menus presionado");
     if (ultimaCategoriaSeleccionada === menusOptions) {
         ocultarOpciones();
         ultimaCategoriaSeleccionada = null;
@@ -64,7 +64,7 @@ btnMenus.addEventListener("click", () => {
 });
 
 btnComplementos.addEventListener("click", () => {
-    console.log("Botón Complementos presionado");
+    //console.log("Botón Complementos presionado");
     if (ultimaCategoriaSeleccionada === complementosOptions) {
         ocultarOpciones();
         ultimaCategoriaSeleccionada = null;
@@ -76,7 +76,7 @@ btnComplementos.addEventListener("click", () => {
 });
 
 btnBebidas.addEventListener("click", () => {
-    console.log("Botón Bebidas presionado");
+    //console.log("Botón Bebidas presionado");
     if (ultimaCategoriaSeleccionada === bebidasOptions) {
         ocultarOpciones();
         ultimaCategoriaSeleccionada = null;
@@ -139,7 +139,7 @@ import { agregarEventoAjax } from "../../controllers/detalle_venta.js";
 function agregarEventoSeleccion(btn, idfunction) {
     if (btn) {
         btn.addEventListener("click", () => {
-            console.log(`Producto ${idfunction} seleccionado`);
+           // console.log(`Producto ${idfunction} seleccionado`);
             //FUNCION AJAX  
             agregarEventoAjax(idfunction);
         });
@@ -198,22 +198,43 @@ if (btnSprite) {
     agregarEventoSeleccion(btnSprite, 12);  
 }
 
-import { arregloproductos } from "../../controllers/detalle_venta.js";
-
-
-console.log(arregloproductos);
-
-var btnPago = document.getElementById("Realizar-pago");
-
+import { arregloproductocontado } from "../../controllers/detalle_venta.js";
 import { clienteenviado } from "../../controllers/cliente.js";
 
+var btnPago = document.getElementById("Realizar-pago");
+console.log(arregloproductocontado)
+
+
+/*REQUISITOS PARA PASAR A LA INTERFAZ DE PAGO :
+    -SE INGRESO LOS DATOS DE CLIENTE
+    -SE AGREGO PRODUCTOS EVITANDO UNA LISTA VACIA
+    */
+
 btnPago.addEventListener("click", () => {
-    console.log("Botón de Pago presionado");
-    if(clienteenviado === true){
-        window.location.href = "../interfazDePago/interfazDePago.html";
+    //console.log("Botón de Pago presionado");
+    if(arregloproductocontado.length === 0){
+        alert('Usted no ha realizado ningun pedido!!')
+    }else{
+        if(clienteenviado === true){
+            window.location.href = "../interfazDePago/interfazDePago.html";
+            
+        }else{
+            alert('falta rellenar los campos de cliente')
+        }
+        
+    }
+
+    /*if(clienteenviado === true){
+        if(arregloproductocontado.length === 0){
+            alert('Usted no ha realizado ningun pedido!!')
+        }else{
+            window.location.href = "../interfazDePago/interfazDePago.html";
+        }
     }else{
         alert('falta rellenar los campos de cliente')
-    }
+    }*/
+
+    
 });
 
 //evento bootstrap

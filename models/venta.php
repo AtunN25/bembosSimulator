@@ -27,21 +27,4 @@
     echo $fecha;
     echo $idCliente;
 
-
-
-    /*
-    $nombreCliente = $_POST['nombreCliente'];
-    $documento = $_POST['documento'];
-
-    echo $fecha;
-    echo $documento;
-
-    $query = "INSERT INTO cliente(nombre_completo,documento) values ('$nombreCliente','$documento');";
-
-    if (mysqli_query($connection, $query)) {
-        echo "New client created successfully";
-    } else {
-        echo "Error: " . mysqli_error($connection);
-    }*/
-
 ?>

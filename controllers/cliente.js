@@ -17,7 +17,7 @@ $('#boton1').click(function() {
         url: '../../models/cliente.php',
         data: {'nombreCliente': nombreCliente, 'documento': documento},
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             alert('SE REGISTRO A UN NUEVO CLIENTE')
             clienteenviado = true;
             $('#nombreClienteActual').text(data);
@@ -27,6 +27,9 @@ $('#boton1').click(function() {
             alert('Error en la solicitud');
         }
     });
+
+    //console.log(data);
+
 });
 
 export{clienteenviado};
