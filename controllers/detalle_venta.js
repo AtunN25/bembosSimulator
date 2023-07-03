@@ -1,5 +1,6 @@
 
 let arregloproductos = [];
+let arregloproductocontado = [];
 
 console.log("holaaaa detalle_venta")
 
@@ -10,10 +11,22 @@ function agregarEventoAjax(id) {
         url: '../../models/producto.php',
         data: {'valor': id},
         success: function(response) {
-            console.log(response);
-            arregloproductos.push(response);
-            console.log(arregloproductos)
+            //console.log(response);
+
             var jsonData = JSON.parse(response);
+
+            console.log(jsonData); 
+
+            jsonData.cantidad = 1;
+
+            
+            console.log(jsonData);
+
+            arregloproductos.push(jsonData);
+
+            console.log(arregloproductos)
+           
+
             
             if (jsonData.valor == id) {
                 console.log('todo bien');
@@ -24,6 +37,7 @@ function agregarEventoAjax(id) {
         }
     });
 }
+
 
 
 
