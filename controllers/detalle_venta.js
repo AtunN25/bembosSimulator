@@ -15,17 +15,40 @@ function agregarEventoAjax(id) {
 
             var jsonData = JSON.parse(response);
 
-            console.log(jsonData); 
+            //console.log(jsonData); 
 
-            jsonData.cantidad = 1;
+            if(arregloproductocontado.length === 0 ){
+                //si el arreglo esta vacio se agrega un nuevo producto
+                jsonData.cantidad = 1;
+                arregloproductocontado.push(jsonData);
+                jsonData.subtotal = jsonData.precio_unidad;
+            }else{
+                //si es falso entonces se verifica si se repiten los id de los productos
+                var productoExistente = false;
+                for(let i=0;i<arregloproductocontado.length;i++){
+                    //si se encuentra un id igual se aumenta su atributo cantidad
+                    if(arregloproductocontado[i].idproducto === jsonData.idproducto){
+                        arregloproductocontado[i].cantidad += 1;
+                        arregloproductocontado[i].subtotal += jsonData.precio_unidad;
+                        productoExistente = true;
+                        break;
+                    }
+                }
+                //sino se encuentra uno igual solo se agrega
+                if (productoExistente == false) {
+                    jsonData.cantidad = 1;
+                    arregloproductocontado.push(jsonData);
+                    jsonData.subtotal = jsonData.precio_unidad;
+                }
+            }
 
-            
-            console.log(jsonData);
+            //console.log(jsonData);
 
-            arregloproductos.push(jsonData);
-
-            console.log(arregloproductos)
-           
+            //arregloproductos.push(jsonData);
+            //console.log("arr")
+            //console.log(arregloproductos)
+            console.log("narr")
+            console.log(arregloproductocontado)
 
             
             if (jsonData.valor == id) {

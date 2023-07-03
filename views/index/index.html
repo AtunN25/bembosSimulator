@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>BEMBOS</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../styles/styles.css"> 
     <!--<script src="productos.js" type="module"></script>          TRAER VARIABLES DE JS-->
     <script src="eventos.js" type="module"></script>
@@ -22,6 +23,7 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+    
     <h3>Cliente actual: <span id="nombreClienteActual"></span></h3>
     <div class="p-3 mb-2 bg-dark text-white">
         <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ  (ESTA SEPARA LAS SECCIONES DE LA INTERFAZ COMO: PRINCIPAL - MOSTRAR OPCIONES - DOWN LEFT RIGHT)-->
@@ -34,7 +36,8 @@
                 <br><br>
                 <textarea name="description2" class="form-control"  id="exampleFormControlTextarea1" rows="5" placeholder="task description"></textarea>
                 <br>
-                <button class="btn btn-success" id = "Realizar-pago">Realizar Pago</button>
+            
+                <button  class="btn btn-success" id = "Realizar-pago" >Realizar Pago</button>
 
             </div>
             
@@ -71,18 +74,44 @@
                 </div>              
             </div>
             <!--division general-->
-
-            <div class="left"><!--SECCION DERECHA DE LA INTERFAZ-->
+            
+            <div class="left" class="row g-3 needs-validation" novalidat><!--SECCION DERECHA DE LA INTERFAZ-->
+                
                 <br><button class="btn btn-danger" id="Cancelar-Pedido">cancelar pedido</button><br>
                 <br><button class="btn btn-light" id="RUC">RUC</button><br>
                 <br><button class="btn btn-light" id="DNI">DNI</button><br>
                 <br>
-                <input type="text" name="nombreCliente" placeholder="Nombre del Cliente"><br>
+                <!--<input type="text" name="nombreCliente" placeholder="Nombre del Cliente"><br>
                 <br>
                 <input type="text" name="documento" placeholder="Documento"><br>
                 <br>
-                <button type="button" id="boton1">enviar cliente</button>
-
+                <button type="button" id="boton1" class="btn btn-primary">enviar cliente</button>-->
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-10">
+                      <label for="validationCustom01" class="form-label">Nombre</label>
+                      <input type="text" name="nombreCliente" class="form-control" id="validationCustom01" placeholder="Nombre del cliente" required>
+                      <div class="valid-feedback">
+                        ¡Se ve bien!
+                      </div>
+                      <div class="invalid-feedback">
+                        Por favor, ingrese un nombre válido.
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <label for="validationCustom02" class="form-label">Documento</label>
+                      <input type="text"  name="documento" class="form-control" id="validationCustom02" placeholder="Documento" required>
+                      <div class="valid-feedback">
+                        ¡Se ve bien!
+                      </div>
+                      <div class="invalid-feedback">
+                        Por favor, ingrese un documento válido.
+                      </div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <button class="btn btn-primary" id="boton1" type="button">Enviar formulario</button>
+                    </div>
+                  </form>
             </div>
 
 
@@ -101,5 +130,7 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+
+
 </body>
 </html>

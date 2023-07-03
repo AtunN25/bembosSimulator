@@ -203,3 +203,47 @@ import { arregloproductos } from "../../controllers/detalle_venta.js";
 
 console.log(arregloproductos);
 
+var btnPago = document.getElementById("Realizar-pago");
+
+import { clienteenviado } from "../../controllers/cliente.js";
+
+btnPago.addEventListener("click", () => {
+    console.log("Botón de Pago presionado");
+    if(clienteenviado === true){
+        window.location.href = "../interfazDePago/interfazDePago.html";
+    }else{
+        alert('falta rellenar los campos de cliente')
+    }
+});
+
+//evento bootstrap
+var form = document.querySelector('.needs-validation');
+      
+        var inputs = form.querySelectorAll('input[type="text"]');
+        Array.prototype.slice.call(inputs).forEach(function (input) {
+          input.addEventListener('input', function () {
+            if (input.value.trim() === '') {
+              input.value = '';
+              input.classList.remove('is-valid');
+              input.classList.add('is-invalid');
+            } else {
+              input.classList.remove('is-invalid');
+              input.classList.add('is-valid');
+            }
+          });
+        });
+      
+        form.addEventListener('submit', function (event) {
+          var isInvalid = false;
+      
+          Array.prototype.slice.call(inputs).forEach(function (input) {
+            if (input.value.trim() === '') {
+              isInvalid = true;
+            }
+          });
+      
+          if (isInvalid) {
+            alert('No se permiten campos vacíos o con solo espacios');
+            event.preventDefault();
+          }
+        });
