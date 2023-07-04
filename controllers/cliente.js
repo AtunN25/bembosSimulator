@@ -12,6 +12,7 @@ $('#boton1').click(function() {
         return; // Detener la ejecución de la función y evitar la llamada AJAX
     }
 
+    //AJAX PARA ENVIAR EL NOMBRE Y DOC A CLIENTE.PHP
     $.ajax({
         type: "POST",
         url: '../../models/cliente.php',

@@ -198,7 +198,7 @@ if (btnSprite) {
     agregarEventoSeleccion(btnSprite, 12);  
 }
 
-import { arregloproductocontado } from "../../controllers/detalle_venta.js";
+import { arregloproductocontado , total } from "../../controllers/detalle_venta.js";
 import { clienteenviado } from "../../controllers/cliente.js";
 
 var btnPago = document.getElementById("Realizar-pago");
@@ -216,6 +216,27 @@ btnPago.addEventListener("click", () => {
         alert('Usted no ha realizado ningun pedido!!')
     }else{
         if(clienteenviado === true){
+            //el ajax funciona bien 
+        $.ajax({
+            type: "POST",
+            url: '../../models/venta.php',
+            data: {'total': total},
+            
+            //AJAX PARA ENVIAR EL TOTAL DEL PEDIDO A VENTA.PHP
+            success: function(response) {
+                console.log(response)
+                if (response === total) {
+                    console.log('El total fue enviado correctamente');
+                } else {
+                    console.log('Hubo un problema al enviar el total');
+                }
+
+            },
+            error: function() {
+                alert('Error en la solicitud');
+            }
+
+        });
             window.location.href = "../interfazDePago/interfazDePago.html";
             
         }else{
@@ -223,17 +244,6 @@ btnPago.addEventListener("click", () => {
         }
         
     }
-
-    /*if(clienteenviado === true){
-        if(arregloproductocontado.length === 0){
-            alert('Usted no ha realizado ningun pedido!!')
-        }else{
-            window.location.href = "../interfazDePago/interfazDePago.html";
-        }
-    }else{
-        alert('falta rellenar los campos de cliente')
-    }*/
-
     
 });
 

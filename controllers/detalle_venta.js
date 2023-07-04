@@ -1,5 +1,4 @@
 
-
 let arregloproductocontado = [];
 
 let total = 0;
@@ -59,17 +58,16 @@ function agregarEventoAjax(id) {
 
             console.log(arregloproductocontado)
             console.log(total);
-            
+
             if (jsonData.valor == id) {
                 console.log('todo bien');
-                setTimeout(function () {
-                    window.location = '../../models/producto.php?valor=' + id;
-                }, 3000); // esto redirigirá al mismo archivo.php después de 3 segundos
+                
             }
         }
+
     });
 }
 
 
-export {arregloproductocontado , agregarEventoAjax , total}
+export {arregloproductocontado , agregarEventoAjax , total }
 
