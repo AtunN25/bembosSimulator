@@ -227,9 +227,9 @@ btnPago.addEventListener("click", () => {
                 console.log(response)
                 if (response === total) {
                     console.log('El total fue enviado correctamente');
-                } else {
+                } /*else {
                     console.log('Hubo un problema al enviar el total');
-                }
+                }*/
 
             },
             error: function() {
@@ -237,17 +237,78 @@ btnPago.addEventListener("click", () => {
             }
 
         });
+        //AJAX PARA ENVIAR EL ARREGLO DEL PEDIDO A DETALLE_VENTA.PHP
+
+        for(let i=0 ; i < arregloproductocontado.length ;i ++){
+            let arr = arregloproductocontado[i];
+            $.ajax({
+                type: "POST",
+                url: '../../models/detalle_venta.php',
+                data: {'arregloproductos':JSON.stringify(arr)},
+                
+                //AJAX PARA ENVIAR EL TOTAL DEL PEDIDO A VENTA.PHP
+                success: function(response) {
+                    console.log(response)
+                    if (response === 'bien') {
+                        console.log('El total fue enviado correctamente');
+                    } else {
+                        console.log('Hubo un problema al enviar el total');
+                    }
+            
+                },
+                error: function() {
+                    alert('Error en la solicitud');
+                }
+            
+            });
+        }
+
+        /*****PROCEDE A IR A LA PAGINA DE PAGO */
             window.location.href = "../interfazDePago/interfazDePago.html";
             
         }else{
             alert('falta rellenar los campos de cliente')
-        }
-        
+        }   
     }
-    
 });
 
-//evento bootstrap
+//AJAX PARA ENVIAR EL ARREGLO DEL PEDIDO A DETALLE_VENTA.PHP
+/*
+var btndetalle = document.getElementById("detalle");
+
+btndetalle.addEventListener("click", () => {
+    console.log("hola soy detalle")
+    console.log(arregloproductocontado)
+    
+
+    for(let i=0 ; i < arregloproductocontado.length ;i ++){
+        let arr = arregloproductocontado[i];
+        $.ajax({
+            type: "POST",
+            url: '../../models/detalle_venta.php',
+            data: {'arregloproductos':JSON.stringify(arr)},
+            
+            //AJAX PARA ENVIAR EL TOTAL DEL PEDIDO A VENTA.PHP
+            success: function(response) {
+                console.log(response)
+                if (response === 'bien') {
+                    console.log('El total fue enviado correctamente');
+                } else {
+                    console.log('Hubo un problema al enviar el total');
+                }
+        
+            },
+            error: function() {
+                alert('Error en la solicitud');
+            }
+        
+        });
+    }
+   
+});*/
+
+
+/**************evento de boostrap **************/ 
 var form = document.querySelector('.needs-validation');
       
         var inputs = form.querySelectorAll('input[type="text"]');

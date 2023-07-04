@@ -1,5 +1,4 @@
 <?php
-   //FALTA EL TOTAL DE VENTA PORQUE PRIMERO SE NECESITA CALCULAR EL DETALLE DE VENTA EN EL CONTROLADOR
    
     include('../connection.php'); 
 
